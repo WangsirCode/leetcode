@@ -4,6 +4,8 @@
 # Given 1->2->3->3->4->4->5, return 1->2->5.
 # Given 1->1->1->2->3, return 2->3.
 # Definition for singly-linked list.
+# Time:  O(n)
+# Space: O(n)
 import collections
 class ListNode(object):
     def __init__(self, x):
