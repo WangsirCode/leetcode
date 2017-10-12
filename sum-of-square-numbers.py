@@ -9,7 +9,9 @@
 # Output: False
 # Time:  o(logn)
 # Space: o(1)
-
+# 1. python ** //
+# 2. any all
+# 3. 列表生成器
 class Solution(object):
     def judgeSquareSum(self, c):
         """
