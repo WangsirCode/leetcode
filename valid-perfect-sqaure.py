@@ -10,6 +10,8 @@
 
 # Input: 14
 # Returns: False
+# Time : o(logn)
+# Space: o(1)
 
 class Solution(object):
     def isPerfectSquare(self, num):
