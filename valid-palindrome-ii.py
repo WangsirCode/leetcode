@@ -9,7 +9,8 @@
 # Explanation: You could delete the character 'c'.
 # Note:
 # The string will only contain lowercase characters a-z. The maximum length of the string is 50000.
-
+# Time:  o(n)
+# Sapce: o(1)
 class Solution(object):
     def isPalindrome(self, s, start, end, delCount):
         if delCount > 1:
