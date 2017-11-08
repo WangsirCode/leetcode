@@ -17,24 +17,35 @@
 # ]
 
 class Solution(object):
-    def subsets(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        solutions = [[]]
+    # def subsets(self, nums):
+    #     """
+    #     :type nums: List[int]
+    #     :rtype: List[List[int]]
+    #     """
+    #     solutions = [[]]
         
-        for num in nums:
-            next = []
-            for solution in solutions:
-                    candidate1 = solution + []
-                    candidate2 = solution + [num]
-                    next.append(candidate1)
-                    next.append(candidate2)
+    #     for num in nums:
+    #         next = []
+    #         for solution in solutions:
+    #                 candidate1 = solution + []
+    #                 candidate2 = solution + [num]
+    #                 next.append(candidate1)
+    #                 next.append(candidate2)
                 
-            solutions = next 
+    #         solutions = next 
             
-        return solutions
+    #     return solutions
+
+    def subsets(self, nums):
+        def backtrack(start, end, tmp):
+            ans.append(tmp[:])
+            for i in range(start, end):
+                tmp.append(nums[i])
+                backtrack(i+1, end, tmp)
+                tmp.pop()
+        ans = []
+        backtrack(0, len(nums), [])
+        return ans
 
 if __name__ == "__main__":
     print(Solution().subsets([1,2,3]))
