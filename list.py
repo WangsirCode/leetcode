@@ -7,6 +7,14 @@ class ListNode(object):
         if self:
             return "{} -> {}".format(self.val, self.next)
     
+    def swapPairs(self, head):
+        pre, pre.next = self, head
+        while pre.next and pre.next.next:
+            a = pre.next
+            b = a.next
+            pre.next, b.next, a.next = b, a, b.next
+            pre = a
+        return self.next
     #     Given a linked list, remove the nth node from the end of list and return its head.
 
     # For example,
