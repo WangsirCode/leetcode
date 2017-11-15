@@ -13,3 +13,20 @@ class Solution(object):
             left += value
             right -= nums[index + 1]
         return -1
+    
+    def numSubarrayProductLessThanK(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        count = 0
+        product = 1
+        left = 0
+        for index,value in enumerate(nums):
+            product *= value
+            while left <= index and product >= k:
+                product /= nums[left]
+                left += 1
+            count += index - left + 1
+        return count
