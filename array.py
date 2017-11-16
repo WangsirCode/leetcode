@@ -14,6 +14,25 @@ class Solution(object):
             right -= nums[index + 1]
         return -1
     
+    def maximumSwap(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        nums = list(str(num))
+        sortedNums = sorted(nums,reverse=True)
+        for i in range(len(nums)):
+            if nums[i] != sortedNums[i]:
+                # swap
+                temp = copy.copy(nums)
+                temp.reverse()
+                index = len(nums) - temp.index(sortedNums[i]) - 1
+                nums[index] = nums[i]
+                nums[i] = sortedNums[i]
+                break
+        return reduce(lambda x,y:10*x + int(y), nums, 0 )
+
+    
     def numSubarrayProductLessThanK(self, nums, k):
         """
         :type nums: List[int]
