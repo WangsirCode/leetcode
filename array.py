@@ -30,3 +30,12 @@ class Solution(object):
                 left += 1
             count += index - left + 1
         return count
+
+    def findShortestSubArray(self, nums):
+        c = collections.Counter(nums)
+        first, last = {}, {}
+        for i, v in enumerate(nums):
+            first.setdefault(v, i)
+            last[v] = i
+        degree = max(c.values())
+        return min(last[v] - first[v] + 1 for v in c if c[v] == degree)
