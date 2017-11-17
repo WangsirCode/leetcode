@@ -36,6 +36,25 @@ class Solution(object):
                     flowerbed[i] = 1
         
         return n <= 0
+    
+    def triangleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        count = 0
+        nums.sort(reverse=True)
+        for i in range(len(nums) - 2):
+            l = i + 1
+            r = len(nums) - 1
+            while l < r:
+                if nums[l] + nums[r] > nums[i]:
+                    count += r - l
+                    l += 1
+                else:
+                    r -= 1
+        
+        return count
     def maximumSwap(self, num):
         """
         :type num: int
