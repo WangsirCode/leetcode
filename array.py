@@ -36,6 +36,19 @@ class Solution(object):
                     flowerbed[i] = 1
         
         return n <= 0
+    def findUnsortedSubarray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        sortedArray = sorted(nums)
+        l, r = 0, len(nums) - 1
+        while sortedArray[l] == nums[l] and l < len(nums):
+            l += 1
+        while sortedArray[r] == nums[r] and r >  0:
+            r -= 1
+        
+        return r - l + 1 if r >l else 0
     
     def triangleNumber(self, nums):
         """
