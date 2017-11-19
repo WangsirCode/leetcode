@@ -36,6 +36,32 @@ class Solution(object):
                     flowerbed[i] = 1
         
         return n <= 0
+    def moveZeroes(self, nums):
+        zero = 0  # records the position of "0"
+        for i in xrange(len(nums)):
+            if nums[i] != 0:
+                nums[i], nums[zero] = nums[zero], nums[i]
+                zero += 1
+    def findDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # Treat each (key, value) pair of the array as the (pointer, next) node of the linked list,
+        # thus the duplicated number will be the begin of the cycle in the linked list.
+        # Besides, there is always a cycle in the linked list which
+        # starts from the first element of the array.
+        slow = nums[0]
+        fast = nums[nums[0]]
+        while slow != fast:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+
+        fast = 0
+        while slow != fast:
+            slow = nums[slow]
+            fast = nums[fast]
+        return slow
     def findDisappearedNumbers(self, nums):
         """
         :type nums: List[int]

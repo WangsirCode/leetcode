@@ -22,21 +22,6 @@ class Solution2(object):
         except:
             return False
 
-class Solution(object):
-    def hasCycle(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
-        while head != None:
-            cur = head.next
-            while cur != None:
-                if cur is head:
-                    return True
-                cur = cur.next
-            head = head.next
-        return False
-
 if __name__ == '__main__':
     a = ListNode(5)
     b = ListNode(5)
