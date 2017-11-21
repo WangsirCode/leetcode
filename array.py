@@ -42,6 +42,18 @@ class Solution(object):
             if nums[i] != 0:
                 nums[i], nums[zero] = nums[zero], nums[i]
                 zero += 1
+    def findDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        result = []
+        nums.sort()
+        for i in range(len(nums) - 1):
+            if nums[i] == nums[i + 1]:
+                result.append(nums[i])
+        return result
+
     def findDuplicate(self, nums):
         """
         :type nums: List[int]
@@ -62,6 +74,7 @@ class Solution(object):
             slow = nums[slow]
             fast = nums[fast]
         return slow
+
     def findDisappearedNumbers(self, nums):
         """
         :type nums: List[int]
@@ -89,7 +102,32 @@ class Solution(object):
             r -= 1
         
         return r - l + 1 if r >l else 0
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        nums.sort()
+        for i in range(len(nums) - 1):
+            if nums[i] == nums[i+1]:
+                return True
+        
+        return False
     
+    def containsNearbyDuplicate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: bool
+        """
+        appearedIndex = collections.defaultdict(lambda : -1)
+        for index, num in enumerate(nums):
+            if appearedIndex[num] != -1:
+                if index - appearedIndex[num] <= k:
+                    return True
+            appearedIndex[num] = index
+        
+        return False
     def triangleNumber(self, nums):
         """
         :type nums: List[int]
