@@ -12,14 +12,14 @@ class Solution(object):
         :type rowIndex: int
         :rtype: List[int]
         """
-        if rowIndex <= 0:
+        if rowIndex < 0:
             return []
-        if rowIndex == 1:
+        if rowIndex == 0:
             return [1]
 
         last = self.getRow(rowIndex - 1)
         result = [1]
-        for i in range(rowIndex - 2):
+        for i in range(rowIndex - 1):
             result.append(last[i] + last[i + 1])
         result.append(1)
         return result
