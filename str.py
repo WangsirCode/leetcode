@@ -2,6 +2,13 @@ class Solution(object):
     def countBinarySubstrings(self, s):
         s = map(len, s.replace('01', '0 1').replace('10', '1 0').split())
         return sum(min(a, b) for a, b in zip(s, s[1:]))
+    
+    def countSegments(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        return len(s.split())
 
     def repeatedStringMatch(self, A, B):
         """
