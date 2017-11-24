@@ -1,8 +1,11 @@
+# Given two strings A and B, find the minimum number of times A has to be repeated such that B is a substring of it. If no such solution, return -1.
+
+# For example, with A = "abcd" and B = "cdabcdab".
+
+# Note:
+# The length of A and B will be between 1 and 10000.
+
 class Solution(object):
-    def countBinarySubstrings(self, s):
-        s = map(len, s.replace('01', '0 1').replace('10', '1 0').split())
-        return sum(min(a, b) for a, b in zip(s, s[1:]))
-    
     def repeatedStringMatch(self, A, B):
         """
         :type A: str
@@ -21,3 +24,6 @@ class Solution(object):
                 result += 1
         
         return -1
+
+if __name__ == "__main__":
+    print(Solution().repeatedStringMatch("abababaaba","aabaaba"))
