@@ -1,4 +1,6 @@
 .vscode
 __pycache__
-!C++/*.cpp
+C++/leetcode.c++/*
+C++/.*
+
 
