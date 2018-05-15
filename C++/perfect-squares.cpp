@@ -12,6 +12,8 @@
 // Output: 2
 // Explanation: 13 = 4 + 9.
 #include<vector>
+#include<algorithm>
+using namespace std;
 class Solution 
 {
     public:
@@ -25,7 +27,7 @@ class Solution
             // cntPerfectSquares[i] = the least number of perfect square numbers 
             // which sum to i. Note that cntPerfectSquares[0] is 0.
             vector<int> cntPerfectSquares(n + 1, INT_MAX);
-            cntPerfectSquares[0] = [0]
+            cntPerfectSquares[0] = 0;
             for (int i = 0; i <= n; i++)
             {
                 for (int j = 1; j*j <= i; j ++)
